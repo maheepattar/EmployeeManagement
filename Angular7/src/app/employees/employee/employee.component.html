@@ -1,0 +1,25 @@
+<form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)" >
+    <input type="hidden"  #EmployeeID="ngModel" name="EmployeeID" [(ngModel)]="service.formData.EmployeeID">
+    <div class="form-group">
+        <label>Full Name</label>
+        <input class="form-control" #FullName="ngModel" name="FullName" [(ngModel)]="service.formData.FullName" required>        
+        <div class="validation-error" *ngIf="FullName.invalid && FullName.touched">This filed is mandatory</div>
+    </div>
+    <div class="form-group">
+        <label>Position</label>
+        <input class="form-control" #Position="ngModel" name="Position" [(ngModel)]="service.formData.Position">
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label>Employee Code</label>
+            <input class="form-control" #EmpCode="ngModel" name="EmpCode" [(ngModel)]="service.formData.EmpCode">
+        </div>
+        <div class="form-group col-md-6">
+            <label>Mobile</label>
+            <input class="form-control" #Mobile="ngModel" name="Mobile" [(ngModel)]="service.formData.Mobile">
+        </div>
+    </div>
+    <div class="form-conrol">
+        <button type="submit" class="btn btn-lg btn-block" [disabled]="form.invalid">Submit</button>
+    </div>
+</form>
